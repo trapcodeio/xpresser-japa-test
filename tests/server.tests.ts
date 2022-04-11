@@ -13,6 +13,8 @@ test.group('Server', (group) => {
 
         // make a request to the route
         const {data} = await axios.get(url);
+
+        // check the response
         assert.isObject(data);
 
         assert.deepEqual(data.numbers, [1, 2, 3]);
