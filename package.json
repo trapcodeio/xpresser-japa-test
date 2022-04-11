@@ -1,0 +1,31 @@
+{
+  "name": "full-stack",
+  "version": "1.0.0",
+  "description": "Xpresser Basic Full Stack App",
+  "main": "server.ts",
+  "repository": "https://github.com/xpresserjs/full-stack.git",
+  "author": "xpresserjs",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "npm run build && node build/main.js",
+    "build": "npx xjs @stack tsc",
+    "ts-watch": "npx tsc --watch",
+    "ts-dev": "npx ts-node-dev --respawn main.ts",
+    "js-dev": "npx nodemon build/main.js"
+  },
+  "dependencies": {
+    "@xpresser/env": "^2.0.2",
+    "axios": "^0.26.1",
+    "japa": "^4.0.0",
+    "xpresser": "^0.27.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.13",
+    "nodemon": "^2.0.14",
+    "prettier": "^2.6.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.4",
+    "xjs-cli": "^1.0.2"
+  }
+}
