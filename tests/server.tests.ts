@@ -4,7 +4,7 @@ import axios from "axios";
 
 test.group('Server', (group) => {
     test('Try "test" route', async (assert) => {
-        // because this is runing inside xpresser,
+        // because this is running inside xpresser,
         // we can access all xpresser's functions
 
         // For example getting the url using route helper
