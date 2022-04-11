@@ -2,32 +2,26 @@ import test from "japa";
 import {$} from "../app";
 import axios from "axios";
 
-test.group('Server', (group) => {
-    // Exit after the test
-    group.after($.exit)
 
+test('Try "test" route', async (assert) => {
+    // because this is running inside xpresser,
+    // we can access all xpresser's functions
 
-    test('Try "test" route', async (assert) => {
-        // because this is running inside xpresser,
-        // we can access all xpresser's functions
+    // For example getting the url using route helper
+    const url = $.helpers.route('test');
+    // => /test/index as defined in routes.ts
 
-        // For example getting the url using route helper
-        const url = $.helpers.route('test');
-        // => /test/index as defined in routes.ts
+    // make a request to the route
+    const {data} = await axios.get(url);
 
-        // make a request to the route
-        const {data} = await axios.get(url);
+    // check the response
+    assert.isObject(data);
 
-        // check the response
-        assert.isObject(data);
+    assert.deepEqual(data.numbers, [1, 2, 3]);
 
-        assert.deepEqual(data.numbers, [1, 2, 3]);
-
-        assert.deepEqual(data.route, {
-            name: 'test',
-            method: 'get',
-            controller: 'AppController@test'
-        });
+    assert.deepEqual(data.route, {
+        name: 'test',
+        method: 'get',
+        controller: 'AppController@test'
     });
-
 });
