@@ -3,6 +3,10 @@ import {$} from "../app";
 import axios from "axios";
 
 test.group('Server', (group) => {
+    // Exit after the test
+    group.after($.exit)
+
+
     test('Try "test" route', async (assert) => {
         // because this is running inside xpresser,
         // we can access all xpresser's functions
@@ -26,5 +30,4 @@ test.group('Server', (group) => {
         });
     });
 
-    group.after($.exit)
 });
